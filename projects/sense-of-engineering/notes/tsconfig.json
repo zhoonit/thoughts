@@ -1,0 +1,15 @@
+{
+  "extends": "@docusaurus/module-type-aliases",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@lectures/shared": ["../../../packages/shared/src"],
+      "@lectures/shared/*": ["../../../packages/shared/src/*"]
+    }
+  },
+  "include": ["src/", "docs/", "docusaurus.config.ts", "sidebars.ts"]
+}
