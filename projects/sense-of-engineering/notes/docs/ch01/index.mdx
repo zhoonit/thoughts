@@ -34,4 +34,15 @@ If you need a comment to explain *what* the code does (not *why*), the code shou
   number={1}
 />
 
+## Try It Yourself
+
+<CodePlayground>
+{`const fibonacci = (n: number): number =>
+  n <= 1 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+
+for (let i = 0; i < 10; i++) {
+  console.log(\`fib(\${i}) = \${fibonacci(i)}\`);
+}`}
+</CodePlayground>
+
 [View slides for this chapter](/sense-of-engineering/slides/#ch01)
