@@ -4,12 +4,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
     },
     "./playground": {
-      "import": "./dist/components/CodePlayground.js",
-      "types": "./dist/components/CodePlayground.d.ts"
+      "import": "./src/components/CodePlayground.tsx",
+      "types": "./src/components/CodePlayground.tsx"
     },
     "./theme": "./src/theme/tokens.css"
   },

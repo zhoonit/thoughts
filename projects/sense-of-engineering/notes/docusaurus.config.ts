@@ -8,7 +8,6 @@ const config: Config = {
   url: "https://example.github.io",
   baseUrl: "/sense-of-engineering/notes/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
 
   presets: [
     [
@@ -28,33 +27,25 @@ const config: Config = {
 
   plugins: [
     function transpileSharedPlugin() {
+      const sharedSrc = path.resolve(__dirname, "../../../packages/shared/src");
       return {
         name: "transpile-shared",
-        configureWebpack() {
-          return {
-            resolve: {
-              symlinks: false,
-            },
-            module: {
-              rules: [
-                {
-                  test: /\.[jt]sx?$/,
-                  include: [
-                    path.resolve(__dirname, "../../../packages/shared/src"),
-                  ],
-                  use: {
-                    loader: "swc-loader",
-                    options: {
-                      jsc: {
-                        parser: { syntax: "typescript", tsx: true },
-                        transform: { react: { runtime: "automatic" } },
-                      },
-                    },
-                  },
-                },
-              ],
-            },
-          };
+        configureWebpack(config) {
+          // Extend Docusaurus's existing babel-loader rule to also
+          // transpile @lectures/shared source TypeScript
+          const babelRule = config.module?.rules?.find(
+            (r: any) =>
+              r?.use?.[0]?.loader &&
+              String(r.use[0].loader).includes("babel-loader"),
+          ) as any;
+          if (babelRule?.include) {
+            if (Array.isArray(babelRule.include)) {
+              babelRule.include.push(sharedSrc);
+            } else {
+              babelRule.include = [babelRule.include, sharedSrc];
+            }
+          }
+          return {};
         },
       };
     },
