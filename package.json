@@ -1,0 +1,19 @@
+{
+  "name": "lectures",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "projects/*/notes",
+    "projects/*/slides"
+  ],
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.1.0",
+    "@testing-library/react": "^16.0.0",
+    "jsdom": "^25.0.0"
+  }
+}
