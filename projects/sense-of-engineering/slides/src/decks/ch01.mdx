@@ -1,0 +1,40 @@
+---
+title: "Chapter 1: Why Engineering Matters"
+---
+
+# Why Engineering Matters
+
+A Sense of Engineering
+
+---
+
+## Code is Communication
+
+Code is read far more often than it is written.
+
+Clarity is not optional.
+
+---
+
+## The Cost of Cleverness
+
+<CodeBlock language="typescript">
+{`// Clever but unclear
+const data = arr.reduce((a, b) => ({...a, [b.id]: b}), {});`}
+</CodeBlock>
+
+---
+
+## A Better Approach
+
+<CodeBlock language="typescript">
+{`// Clear and intentional
+const map = new Map(arr.map(item => [item.id, item]));`}
+</CodeBlock>
+
+---
+
+## Key Takeaway
+
+> Good engineering is about making deliberate choices —
+> understanding trade-offs, not just following patterns.
