@@ -11,7 +11,7 @@
 
   /* ── Typography ── */
   --r-main-font: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
-  --r-main-font-size: 40px;
+  --r-main-font-size: 20px;
   --r-main-color: #fff;
   --r-block-margin: 20px;
 
@@ -23,9 +23,9 @@
   --r-heading-text-transform: none;
   --r-heading-text-shadow: none;
   --r-heading-font-weight: 600;
-  --r-heading1-size: 2.5em;
-  --r-heading2-size: 1.6em;
-  --r-heading3-size: 1.3em;
+  --r-heading1-size: 2.6em;
+  --r-heading2-size: 1.5em;
+  --r-heading3-size: 1.2em;
   --r-heading4-size: 1.0em;
   --r-heading-margin: 0 0 20px 0;
 

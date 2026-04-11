@@ -2,6 +2,7 @@ import { useEffect, useState, type ComponentType } from "react";
 import { DeckIndex } from "./DeckIndex";
 import { Deck } from "@revealjs/react";
 import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
+import RevealMermaid from "reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/black.css";
 import "reveal.js/plugin/highlight/monokai.css";
@@ -14,7 +15,8 @@ const deckConfig = {
   minScale: 0.2,
   maxScale: 2.0,
   slideNumber: 'c/t',
-  transition: "none"
+  transition: "none",
+  navigationMode: "linear",
 };
 
 const deckModules = import.meta.glob<{ default: ComponentType }>(
@@ -54,7 +56,7 @@ export function App() {
   if (!deckName || !DeckComponent) return <DeckIndex />;
 
   return (
-    <Deck config={deckConfig} plugins={[RevealHighlight]}>
+    <Deck config={deckConfig} plugins={[RevealHighlight, RevealMermaid]}>
       <DeckComponent />
     </Deck>
   );
