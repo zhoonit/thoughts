@@ -2,14 +2,17 @@ import { useRef, useState, useEffect, useCallback, type ReactNode } from "react"
 import { EditorView, basicSetup } from "codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { oneDark } from "@codemirror/theme-one-dark";
-import * as esbuild from "esbuild-wasm";
+import type * as EsbuildTypes from "esbuild-wasm";
 
-let esbuildReady: Promise<void> | null = null;
+let esbuildReady: Promise<typeof EsbuildTypes> | null = null;
 
-function initEsbuild(): Promise<void> {
+function initEsbuild(): Promise<typeof EsbuildTypes> {
   if (!esbuildReady) {
-    esbuildReady = esbuild.initialize({
-      wasmURL: "https://unpkg.com/esbuild-wasm@0.24.0/esbuild.wasm",
+    esbuildReady = import("esbuild-wasm").then(async (esbuild) => {
+      await esbuild.initialize({
+        wasmURL: "https://unpkg.com/esbuild-wasm@0.24.0/esbuild.wasm",
+      });
+      return esbuild;
     });
   }
   return esbuildReady;
@@ -46,7 +49,7 @@ export function CodePlayground({ children }: CodePlaygroundProps): ReactNode {
     setRunning(true);
 
     try {
-      await initEsbuild();
+      const esbuild = await initEsbuild();
       const code = viewRef.current?.state.doc.toString() ?? "";
       const result = await esbuild.transform(code, {
         loader: "ts",

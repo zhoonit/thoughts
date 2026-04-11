@@ -7,7 +7,7 @@ const config: Config = {
   tagline: "Lecture notes",
   url: "https://example.github.io",
   baseUrl: "/sense-of-engineering/notes/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
 
   presets: [
     [

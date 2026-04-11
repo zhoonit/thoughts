@@ -15,6 +15,10 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      "@lectures/shared/theme": path.resolve(
+        __dirname,
+        "../../../packages/shared/src/theme/tokens.css"
+      ),
       "@lectures/shared": path.resolve(
         __dirname,
         "../../../packages/shared/src"
