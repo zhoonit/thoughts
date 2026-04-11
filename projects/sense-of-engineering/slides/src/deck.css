@@ -1,0 +1,43 @@
+/* Reveal.js presentation defaults — edit these to adjust the deck */
+
+:root {
+  /* ── Slide size (Deck config, mirrored here for reference) ── */
+  /* Actual values are passed via Deck config={{ width, height, ... }} */
+  /* width: 960   height: 700   margin: 0.04 */
+  /* minScale: 0.2   maxScale: 2.0 */
+
+  /* ── Background ── */
+  --r-background-color: #191919;
+
+  /* ── Typography ── */
+  --r-main-font: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  --r-main-font-size: 40px;
+  --r-main-color: #fff;
+  --r-block-margin: 20px;
+
+  /* ── Headings ── */
+  --r-heading-font: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  --r-heading-color: #fff;
+  --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: 600;
+  --r-heading1-size: 2.5em;
+  --r-heading2-size: 1.6em;
+  --r-heading3-size: 1.3em;
+  --r-heading4-size: 1.0em;
+  --r-heading-margin: 0 0 20px 0;
+
+  /* ── Code ── */
+  --r-code-font: "JetBrains Mono", "Fira Code", monospace;
+
+  /* ── Links ── */
+  --r-link-color: #42affa;
+  --r-link-color-dark: #068de9;
+  --r-link-color-hover: #8dcffc;
+
+  /* ── Selection ── */
+  --r-selection-background-color: rgba(66, 175, 250, 0.75);
+  --r-selection-color: #fff;
+}

@@ -1,13 +1,24 @@
 import { useEffect, useState, type ComponentType } from "react";
-import { SlideLayout } from "./SlideLayout";
 import { DeckIndex } from "./DeckIndex";
-import { CodeBlock, Callout, Figure } from "@lectures/shared";
-import "@lectures/shared/theme";
+import { Deck } from "@revealjs/react";
+import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
+import "reveal.js/dist/reveal.css";
+import "reveal.js/dist/theme/black.css";
+import "reveal.js/plugin/highlight/monokai.css";
+import "./deck.css";
 
-const mdxComponents = { CodeBlock, Callout, Figure };
+const deckConfig = {
+  width: 960,
+  height: 700,
+  margin: 0.04,
+  minScale: 0.2,
+  maxScale: 2.0,
+  slideNumber: 'c/t',
+  transition: "none"
+};
 
 const deckModules = import.meta.glob<{ default: ComponentType }>(
-  "./decks/*.mdx"
+  "./decks/*.tsx"
 );
 
 function getDeckName(): string | null {
@@ -32,7 +43,7 @@ export function App() {
       setDeckComponent(null);
       return;
     }
-    const loader = deckModules[`./decks/${deckName}.mdx`];
+    const loader = deckModules[`./decks/${deckName}.tsx`];
     if (loader) {
       loader().then((mod) => setDeckComponent(() => mod.default));
     } else {
@@ -43,8 +54,8 @@ export function App() {
   if (!deckName || !DeckComponent) return <DeckIndex />;
 
   return (
-    <SlideLayout>
-      <DeckComponent components={mdxComponents} />
-    </SlideLayout>
+    <Deck config={deckConfig} plugins={[RevealHighlight]}>
+      <DeckComponent />
+    </Deck>
   );
 }

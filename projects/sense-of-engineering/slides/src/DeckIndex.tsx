@@ -1,8 +1,8 @@
-const decks = import.meta.glob("./decks/*.mdx");
+const decks = import.meta.glob("./decks/*.tsx");
 
 const deckNames = Object.keys(decks)
   .map((path) => {
-    const match = path.match(/\.\/decks\/(.+)\.mdx$/);
+    const match = path.match(/\.\/decks\/(.+)\.tsx$/);
     return match ? match[1] : null;
   })
   .filter((name): name is string => name !== null)
