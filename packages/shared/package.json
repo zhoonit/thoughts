@@ -1,0 +1,27 @@
+{
+  "name": "@lectures/shared",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./playground": {
+      "import": "./dist/components/CodePlayground.js",
+      "types": "./dist/components/CodePlayground.d.ts"
+    },
+    "./theme": "./src/theme/tokens.css"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "prism-react-renderer": "^2.4.0"
+  }
+}
