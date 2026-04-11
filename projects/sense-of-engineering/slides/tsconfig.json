@@ -1,0 +1,13 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["vite/client"],
+    "paths": {
+      "@lectures/shared": ["../../../packages/shared/src"],
+      "@lectures/shared/*": ["../../../packages/shared/src/*"]
+    }
+  },
+  "include": ["src", "src/**/*.mdx"]
+}
