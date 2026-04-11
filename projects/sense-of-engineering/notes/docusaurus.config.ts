@@ -8,6 +8,10 @@ const config: Config = {
   url: "https://example.github.io",
   baseUrl: "/sense-of-engineering/notes/",
   onBrokenLinks: "warn",
+  themes: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
+  markdown: {
+    mermaid: true,
+  },
 
   presets: [
     [
@@ -18,39 +22,9 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
         },
         blog: false,
-        theme: {
-          customCss: [require.resolve("@lectures/shared/theme")],
-        },
       } satisfies Preset.Options,
     ],
   ],
-
-  plugins: [
-    function transpileSharedPlugin() {
-      const sharedSrc = path.resolve(__dirname, "../../../packages/shared/src");
-      return {
-        name: "transpile-shared",
-        configureWebpack(config) {
-          // Extend Docusaurus's existing babel-loader rule to also
-          // transpile @lectures/shared source TypeScript
-          const babelRule = config.module?.rules?.find(
-            (r: any) =>
-              r?.use?.[0]?.loader &&
-              String(r.use[0].loader).includes("babel-loader"),
-          ) as any;
-          if (babelRule?.include) {
-            if (Array.isArray(babelRule.include)) {
-              babelRule.include.push(sharedSrc);
-            } else {
-              babelRule.include = [babelRule.include, sharedSrc];
-            }
-          }
-          return {};
-        },
-      };
-    },
-  ],
-
   themeConfig: {
     navbar: {
       title: "A Sense of Engineering",
@@ -61,6 +35,21 @@ const config: Config = {
           position: "right",
         },
       ],
+    },
+    footer: {
+      style: "dark",
+      links: [
+        {
+          title: " ",
+          items: [
+            {
+              label: "이용 문의",
+              to: "/license",
+            },
+          ],
+        },
+      ],
+      copyright: `© ${new Date().getFullYear()} A Sense of Engineering <a href="mailto:zhoonit@gmail.com">zhoonit@gmail.com</a>`,
     },
   } satisfies Preset.ThemeConfig,
 };
