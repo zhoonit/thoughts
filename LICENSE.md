@@ -1,0 +1,41 @@
+# 라이선스
+
+본 저장소의 저작물은 아래 조건에 따라 이용할 수 있습니다.
+
+## 코드
+
+본 저장소에 포함된 소스코드 및 코드 예제는 별도의 허가 없이 자유롭게 사용할 수 있습니다. 하지만 가능한 경우 원저를 명시해주시면 감사드리겠습니다 (_ _)
+단, 코드는 "있는 그대로(AS-IS)" 제공되며, 저작권자는 코드의 사용으로 인해 발생하는 어떠한 결과에 대해서도 명시적 또는 묵시적 보증을 하지 않으며 책임을 지지 않습니다.
+
+## 콘텐츠 (문서, 강의 자료, 이미지 등)
+
+하기 제한 사항을 제외하면 모든 콘텐츠는 [CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) 조건을 따릅니다.
+
+- **인용**: 질문에 답하거나 예제를 인용하는 등 합리적인 범위의 인용은 별도의 허가 없이 가능합니다.
+- **상당량 반영**: 본 저장소의 콘텐츠를 제품이나 문서에 상당 부분(전체의 약 20% 이상 또는 핵심 구조를 차용하는 경우) 반영하려면 사전에 별도의 허가를 받아야 합니다.
+
+## 문의
+
+라이선스 관련 문의 사항이 있으시면 [zhoonit@gmail.com](mailto:zhoonit@gmail.com)으로 연락해 주시기 바랍니다.
+
+---
+
+# License
+
+The contents of this repository are available under the following terms.
+
+## Code
+
+The source code and code examples included in this repository may be freely used without separate permission. However, attribution to the original work is appreciated where possible.
+Code is provided "AS-IS," and the copyright holder makes no express or implied warranties and assumes no liability for any consequences arising from its use.
+
+## Content (documents, lecture materials, images, etc.)
+
+Except for the restrictions below, all content is licensed under [CC BY-NC-SA 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+- **Quotation**: Reasonable quotation, such as answering questions or citing examples, is permitted without separate permission.
+- **Substantial incorporation**: If you intend to incorporate a substantial portion of the content from this repository into a product or document (approximately 20% or more of the total, or borrowing the core structure), prior permission must be obtained.
+
+## Contact
+
+For license-related inquiries, please contact [zhoonit@gmail.com](mailto:zhoonit@gmail.com).
