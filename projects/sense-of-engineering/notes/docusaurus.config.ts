@@ -28,13 +28,6 @@ const config: Config = {
   themeConfig: {
     navbar: {
       title: "A Sense of Engineering",
-      items: [
-        {
-          href: "/sense-of-engineering/slides/",
-          label: "Slides",
-          position: "right",
-        },
-      ],
     },
     footer: {
       style: "dark",

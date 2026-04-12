@@ -9,14 +9,15 @@ import "reveal.js/plugin/highlight/monokai.css";
 import "./deck.css";
 
 const deckConfig = {
-  width: 960,
-  height: 700,
+  width: 1920,
+  height: 1080 * 0.90,
   margin: 0.04,
   minScale: 0.2,
   maxScale: 2.0,
   slideNumber: 'c/t',
   transition: "none",
   navigationMode: "linear",
+  center: false,
 };
 
 const deckModules = import.meta.glob<{ default: ComponentType }>(
