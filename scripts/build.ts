@@ -6,6 +6,15 @@ const ROOT = join(import.meta.dir, "..");
 const DIST = join(ROOT, "dist");
 const PROJECTS_DIR = join(ROOT, "projects");
 
+// Root path the site is served from (e.g. "/thoughts/" on GitHub Pages).
+// Normalized to always have a leading and trailing slash.
+function normBase(b: string): string {
+  if (!b.startsWith("/")) b = "/" + b;
+  if (!b.endsWith("/")) b = b + "/";
+  return b;
+}
+const BASE = normBase(process.env.BASE_URL ?? "/");
+
 async function dirExists(path: string): Promise<boolean> {
   try {
     const s = await stat(path);
@@ -44,7 +53,9 @@ async function main() {
     const notesDir = join(projectDir, "notes");
     if (await dirExists(notesDir)) {
       console.log(`[${project}/notes] Building...`);
-      await $`bun run --cwd ${notesDir} build`.quiet();
+      await $`bun run --cwd ${notesDir} build`
+        .env({ ...process.env, DOCUSAURUS_BASE_URL: `${BASE}${project}/notes/` })
+        .quiet();
       await cp(join(notesDir, "build"), join(DIST, project, "notes"), {
         recursive: true,
       });
@@ -56,7 +67,9 @@ async function main() {
     const slidesDir = join(projectDir, "slides");
     if (await dirExists(slidesDir)) {
       console.log(`[${project}/slides] Building...`);
-      await $`bun run --cwd ${slidesDir} build`.quiet();
+      await $`bun run --cwd ${slidesDir} build`
+        .env({ ...process.env, VITE_BASE_URL: `${BASE}${project}/slides/` })
+        .quiet();
       await cp(join(slidesDir, "dist"), join(DIST, project, "slides"), {
         recursive: true,
       });
@@ -81,8 +94,8 @@ async function main() {
       <li class="project">
         <h2>${p.name}</h2>
         <div class="links">
-          ${p.hasNotes ? `<a href="/${p.slug}/notes/">Notes</a>` : ""}
-          ${p.hasSlides ? `<a href="/${p.slug}/slides/">Slides</a>` : ""}
+          ${p.hasNotes ? `<a href="${BASE}${p.slug}/notes/">Notes</a>` : ""}
+          ${p.hasSlides ? `<a href="${BASE}${p.slug}/slides/">Slides</a>` : ""}
         </div>
       </li>`
     )

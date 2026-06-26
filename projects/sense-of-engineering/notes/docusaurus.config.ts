@@ -5,8 +5,8 @@ import path from "path";
 const config: Config = {
   title: "A Sense of Engineering",
   tagline: "Lecture notes",
-  url: "https://example.github.io",
-  baseUrl: "/sense-of-engineering/notes/",
+  url: "https://zhoonit.github.io",
+  baseUrl: process.env.DOCUSAURUS_BASE_URL ?? "/sense-of-engineering/notes/",
   onBrokenLinks: "warn",
   themes: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
   markdown: {
